@@ -20,3 +20,7 @@ The goal of this project is to create a simple website that allows you to:
 
 * Youtube captions don't have ponctuation
     * can we use an API to solve this issue? Example https://github.com/ottokart/punctuator2
+    
+## Useful links
+
+* CDK setup was powered by https://github.com/aws-samples/aws-cdk-examples

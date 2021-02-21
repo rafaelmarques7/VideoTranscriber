@@ -1,0 +1,750 @@
+{
+  "Resources": {
+    "requestsC775BB57": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "Content": {
+          "S3Bucket": {
+            "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3Bucket45C5E283"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "LayerName": "requests"
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/requests/Resource",
+        "aws:asset:path": "asset.e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1.zip",
+        "aws:asset:property": "Content"
+      }
+    },
+    "pytubeB3DD3FDA": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "Content": {
+          "S3Bucket": {
+            "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3BucketA9D75FC0"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "LayerName": "pytube"
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/pytube/Resource",
+        "aws:asset:path": "asset.984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b.zip",
+        "aws:asset:property": "Content"
+      }
+    },
+    "VideoTranscriberApiServiceRoleCA96D5B5": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/VideoTranscriberApi/ServiceRole/Resource"
+      }
+    },
+    "VideoTranscriberApi7DA9F2CF": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3Bucket3D16411C"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "VideoTranscriberApiServiceRoleCA96D5B5",
+            "Arn"
+          ]
+        },
+        "Handler": "main.handler",
+        "Layers": [
+          {
+            "Ref": "requestsC775BB57"
+          },
+          {
+            "Ref": "pytubeB3DD3FDA"
+          }
+        ],
+        "Runtime": "python3.8",
+        "Timeout": 30
+      },
+      "DependsOn": [
+        "VideoTranscriberApiServiceRoleCA96D5B5"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/VideoTranscriberApi/Resource",
+        "aws:asset:path": "asset.dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c",
+        "aws:asset:property": "Code"
+      }
+    },
+    "ApiGatewayWithCors6DE4076F": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "VideoTranscriberApi"
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Resource"
+      }
+    },
+    "ApiGatewayWithCorsCloudWatchRole9C3700F0": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "apigateway.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/CloudWatchRole/Resource"
+      }
+    },
+    "ApiGatewayWithCorsAccount3D15B20D": {
+      "Type": "AWS::ApiGateway::Account",
+      "Properties": {
+        "CloudWatchRoleArn": {
+          "Fn::GetAtt": [
+            "ApiGatewayWithCorsCloudWatchRole9C3700F0",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "ApiGatewayWithCors6DE4076F"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Account"
+      }
+    },
+    "ApiGatewayWithCorsDeployment248C07007c9092e72d70d9a493db002d222d84bd": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "ApiGatewayWithCors6DE4076F"
+        },
+        "Description": "Automatically created by the RestApi construct"
+      },
+      "DependsOn": [
+        "ApiGatewayWithCorsexampleGETCC962CB3",
+        "ApiGatewayWithCorsexampleOPTIONS2F5D9F4D",
+        "ApiGatewayWithCorsexample5AE32A3C"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Deployment/Resource"
+      }
+    },
+    "ApiGatewayWithCorsDeploymentStageprod7F1DD875": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "ApiGatewayWithCors6DE4076F"
+        },
+        "DeploymentId": {
+          "Ref": "ApiGatewayWithCorsDeployment248C07007c9092e72d70d9a493db002d222d84bd"
+        },
+        "StageName": "prod"
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/DeploymentStage.prod/Resource"
+      }
+    },
+    "ApiGatewayWithCorsexample5AE32A3C": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayWithCors6DE4076F",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "example",
+        "RestApiId": {
+          "Ref": "ApiGatewayWithCors6DE4076F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Default/example/Resource"
+      }
+    },
+    "ApiGatewayWithCorsexampleGETApiPermissionVideoTranscriberApiStackApiGatewayWithCors8790D765GETexample7DADBE6B": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "VideoTranscriberApi7DA9F2CF",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayWithCors6DE4076F"
+              },
+              "/",
+              {
+                "Ref": "ApiGatewayWithCorsDeploymentStageprod7F1DD875"
+              },
+              "/GET/example"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Default/example/GET/ApiPermission.VideoTranscriberApiStackApiGatewayWithCors8790D765.GET..example"
+      }
+    },
+    "ApiGatewayWithCorsexampleGETApiPermissionTestVideoTranscriberApiStackApiGatewayWithCors8790D765GETexampleB72D7BD7": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "VideoTranscriberApi7DA9F2CF",
+            "Arn"
+          ]
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayWithCors6DE4076F"
+              },
+              "/test-invoke-stage/GET/example"
+            ]
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Default/example/GET/ApiPermission.Test.VideoTranscriberApiStackApiGatewayWithCors8790D765.GET..example"
+      }
+    },
+    "ApiGatewayWithCorsexampleGETCC962CB3": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "ResourceId": {
+          "Ref": "ApiGatewayWithCorsexample5AE32A3C"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayWithCors6DE4076F"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
+              "StatusCode": "200"
+            }
+          ],
+          "Type": "AWS",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "VideoTranscriberApi7DA9F2CF",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
+            "StatusCode": "200"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Default/example/GET/Resource"
+      }
+    },
+    "ApiGatewayWithCorsexampleOPTIONS2F5D9F4D": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "OPTIONS",
+        "ResourceId": {
+          "Ref": "ApiGatewayWithCorsexample5AE32A3C"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayWithCors6DE4076F"
+        },
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationResponses": [
+            {
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'"
+              },
+              "StatusCode": "200"
+            }
+          ],
+          "PassthroughBehavior": "WHEN_NO_MATCH",
+          "RequestTemplates": {
+            "application/json": "{\"statusCode\":200}"
+          },
+          "Type": "MOCK"
+        },
+        "MethodResponses": [
+          {
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
+            "StatusCode": "200"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/ApiGatewayWithCors/Default/example/OPTIONS/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Modules": "aws-cdk=1.90.1,@aws-cdk/assets=1.90.1,@aws-cdk/aws-apigateway=1.90.1,@aws-cdk/aws-applicationautoscaling=1.90.1,@aws-cdk/aws-autoscaling-common=1.90.1,@aws-cdk/aws-certificatemanager=1.90.1,@aws-cdk/aws-cloudformation=1.90.1,@aws-cdk/aws-cloudwatch=1.90.1,@aws-cdk/aws-codeguruprofiler=1.90.1,@aws-cdk/aws-cognito=1.90.1,@aws-cdk/aws-ec2=1.90.1,@aws-cdk/aws-ecr=1.90.1,@aws-cdk/aws-ecr-assets=1.90.1,@aws-cdk/aws-efs=1.90.1,@aws-cdk/aws-elasticloadbalancingv2=1.90.1,@aws-cdk/aws-events=1.90.1,@aws-cdk/aws-iam=1.90.1,@aws-cdk/aws-kms=1.90.1,@aws-cdk/aws-lambda=1.90.1,@aws-cdk/aws-logs=1.90.1,@aws-cdk/aws-route53=1.90.1,@aws-cdk/aws-s3=1.90.1,@aws-cdk/aws-s3-assets=1.90.1,@aws-cdk/aws-sns=1.90.1,@aws-cdk/aws-sqs=1.90.1,@aws-cdk/aws-ssm=1.90.1,@aws-cdk/cloud-assembly-schema=1.90.1,@aws-cdk/core=1.90.1,@aws-cdk/custom-resources=1.90.1,@aws-cdk/cx-api=1.90.1,@aws-cdk/region-info=1.90.1,jsii-runtime=Python/3.8.6"
+      },
+      "Metadata": {
+        "aws:cdk:path": "VideoTranscriberApiStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Parameters": {
+    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3Bucket45C5E283": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+    },
+    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+    },
+    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1ArtifactHashCBBB80B5": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+    },
+    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3BucketA9D75FC0": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+    },
+    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+    },
+    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bArtifactHash58F45CA3": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+    },
+    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3Bucket3D16411C": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+    },
+    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+    },
+    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cArtifactHashA278E577": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+    }
+  },
+  "Outputs": {
+    "ApiGatewayWithCorsEndpoint559B76CB": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://",
+            {
+              "Ref": "ApiGatewayWithCors6DE4076F"
+            },
+            ".execute-api.",
+            {
+              "Ref": "AWS::Region"
+            },
+            ".",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/",
+            {
+              "Ref": "ApiGatewayWithCorsDeploymentStageprod7F1DD875"
+            },
+            "/"
+          ]
+        ]
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
