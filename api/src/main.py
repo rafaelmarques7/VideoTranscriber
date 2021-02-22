@@ -21,16 +21,21 @@ def captions_clean_text(captions_str):
     captions_str = captions_str.lstrip()
     return captions_str
 
-yt_link = "https://www.youtube.com/watch?v=T-cbdnP0Hyc"
+def handler(event, context):
+    print("inside lambda")
+    yt_link = "https://www.youtube.com/watch?v=T-cbdnP0Hyc"
 
-yt_object = YouTube(yt_link)
-captions_xml = yt_object.caption_tracks[0].xml_captions
-captions_str = captions_transform_xml_to_str(captions_xml)
-captions_str = captions_clean_text(captions_str)
+    print(f"creating Youtube object for link: {yt_link}")
+    yt_object = YouTube(yt_link)
+    captions_xml = yt_object.caption_tracks[0].xml_captions
+    captions_str = captions_transform_xml_to_str(captions_xml)
+    captions_str = captions_clean_text(captions_str)
 
-# Try to add some punctuation to captions_str
-res = requests.post("http://bark.phon.ioc.ee/punctuator", {"text": captions_str})
-captions_with_punctuation = res.text
+    # Try to add some punctuation to captions_str
+    res = requests.post("http://bark.phon.ioc.ee/punctuator", {"text": captions_str})
+    captions_with_punctuation = res.text
 
-print(captions_with_punctuation)
-print("hello")
+    return {
+        'statusCode': 200,
+        'body': captions_with_punctuation
+    }
