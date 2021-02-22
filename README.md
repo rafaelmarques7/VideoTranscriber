@@ -56,3 +56,9 @@ To create a `package.zip` file for a particular dependency, follow the following
   * zip the folder `zip -r ./requests.zip .`
   * now move the zipped folder into the layers directory, and delete the temp directory altogether
   * voilá
+  
+## To Do's
+
+* input: validate input
+* handle case where youtube does not have captions
+* handle case where punctuation request errors
