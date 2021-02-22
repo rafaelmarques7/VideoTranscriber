@@ -5,7 +5,7 @@
       "Properties": {
         "Content": {
           "S3Bucket": {
-            "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3Bucket45C5E283"
+            "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3Bucket9A668EFF"
           },
           "S3Key": {
             "Fn::Join": [
@@ -18,7 +18,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                          "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3VersionKey6EF76338"
                         }
                       ]
                     }
@@ -31,7 +31,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                          "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3VersionKey6EF76338"
                         }
                       ]
                     }
@@ -40,12 +40,11 @@
               ]
             ]
           }
-        },
-        "LayerName": "requests"
+        }
       },
       "Metadata": {
         "aws:cdk:path": "VideoTranscriberApiStack/requests/Resource",
-        "aws:asset:path": "asset.e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1.zip",
+        "aws:asset:path": "asset.f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d.zip",
         "aws:asset:property": "Content"
       }
     },
@@ -54,7 +53,7 @@
       "Properties": {
         "Content": {
           "S3Bucket": {
-            "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3BucketA9D75FC0"
+            "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3Bucket6927ADEF"
           },
           "S3Key": {
             "Fn::Join": [
@@ -67,7 +66,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                          "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3VersionKeyFC4C977F"
                         }
                       ]
                     }
@@ -80,7 +79,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                          "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3VersionKeyFC4C977F"
                         }
                       ]
                     }
@@ -89,12 +88,11 @@
               ]
             ]
           }
-        },
-        "LayerName": "pytube"
+        }
       },
       "Metadata": {
         "aws:cdk:path": "VideoTranscriberApiStack/pytube/Resource",
-        "aws:asset:path": "asset.984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b.zip",
+        "aws:asset:path": "asset.aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946.zip",
         "aws:asset:property": "Content"
       }
     },
@@ -137,7 +135,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3Bucket3D16411C"
+            "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3Bucket76E324BB"
           },
           "S3Key": {
             "Fn::Join": [
@@ -150,7 +148,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                          "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3VersionKey579E86D2"
                         }
                       ]
                     }
@@ -163,7 +161,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                          "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3VersionKey579E86D2"
                         }
                       ]
                     }
@@ -196,7 +194,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "VideoTranscriberApiStack/VideoTranscriberApi/Resource",
-        "aws:asset:path": "asset.dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c",
+        "aws:asset:path": "asset.00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d",
         "aws:asset:property": "Code"
       }
     },
@@ -508,41 +506,41 @@
     }
   },
   "Parameters": {
-    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3Bucket45C5E283": {
+    "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3Bucket9A668EFF": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+      "Description": "S3 bucket for asset \"f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d\""
     },
-    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D": {
+    "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3VersionKey6EF76338": {
       "Type": "String",
-      "Description": "S3 key for asset version \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+      "Description": "S3 key for asset version \"f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d\""
     },
-    "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1ArtifactHashCBBB80B5": {
+    "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dArtifactHash2178B888": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1\""
+      "Description": "Artifact hash for asset \"f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d\""
     },
-    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3BucketA9D75FC0": {
+    "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3Bucket6927ADEF": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+      "Description": "S3 bucket for asset \"aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946\""
     },
-    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882": {
+    "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3VersionKeyFC4C977F": {
       "Type": "String",
-      "Description": "S3 key for asset version \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+      "Description": "S3 key for asset version \"aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946\""
     },
-    "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bArtifactHash58F45CA3": {
+    "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946ArtifactHashE7793FF1": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b\""
+      "Description": "Artifact hash for asset \"aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946\""
     },
-    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3Bucket3D16411C": {
+    "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3Bucket76E324BB": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+      "Description": "S3 bucket for asset \"00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d\""
     },
-    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03": {
+    "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3VersionKey579E86D2": {
       "Type": "String",
-      "Description": "S3 key for asset version \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+      "Description": "S3 key for asset version \"00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d\""
     },
-    "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cArtifactHashA278E577": {
+    "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dArtifactHash12EA4EA6": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c\""
+      "Description": "Artifact hash for asset \"00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d\""
     }
   },
   "Outputs": {

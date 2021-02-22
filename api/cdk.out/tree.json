@@ -54,7 +54,7 @@
                   "aws:cdk:cloudformation:props": {
                     "content": {
                       "s3Bucket": {
-                        "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3Bucket45C5E283"
+                        "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3Bucket9A668EFF"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -67,7 +67,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                                      "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3VersionKey6EF76338"
                                     }
                                   ]
                                 }
@@ -80,7 +80,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameterse8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1S3VersionKey721B0D8D"
+                                      "Ref": "AssetParametersf809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5dS3VersionKey6EF76338"
                                     }
                                   ]
                                 }
@@ -89,8 +89,7 @@
                           ]
                         ]
                       }
-                    },
-                    "layerName": "requests"
+                    }
                   }
                 },
                 "constructInfo": {
@@ -108,13 +107,13 @@
             "id": "AssetParameters",
             "path": "VideoTranscriberApiStack/AssetParameters",
             "children": {
-              "e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1": {
-                "id": "e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1",
-                "path": "VideoTranscriberApiStack/AssetParameters/e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1",
+              "f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d": {
+                "id": "f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d",
+                "path": "VideoTranscriberApiStack/AssetParameters/f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "VideoTranscriberApiStack/AssetParameters/e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1/S3Bucket",
+                    "path": "VideoTranscriberApiStack/AssetParameters/f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -122,7 +121,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "VideoTranscriberApiStack/AssetParameters/e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1/S3VersionKey",
+                    "path": "VideoTranscriberApiStack/AssetParameters/f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -130,7 +129,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "VideoTranscriberApiStack/AssetParameters/e8cf0bea89d62ce2d8842aeb664106c8cf05a76a3880cbac7ff320e1e75ea8e1/ArtifactHash",
+                    "path": "VideoTranscriberApiStack/AssetParameters/f809c9a48248f05748ddda6a175bb7bc332c28b4833450a85aaf475184947f5d/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -142,13 +141,13 @@
                   "version": "1.90.1"
                 }
               },
-              "984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b": {
-                "id": "984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b",
-                "path": "VideoTranscriberApiStack/AssetParameters/984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b",
+              "aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946": {
+                "id": "aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946",
+                "path": "VideoTranscriberApiStack/AssetParameters/aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "VideoTranscriberApiStack/AssetParameters/984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b/S3Bucket",
+                    "path": "VideoTranscriberApiStack/AssetParameters/aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -156,7 +155,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "VideoTranscriberApiStack/AssetParameters/984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b/S3VersionKey",
+                    "path": "VideoTranscriberApiStack/AssetParameters/aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -164,7 +163,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "VideoTranscriberApiStack/AssetParameters/984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1b/ArtifactHash",
+                    "path": "VideoTranscriberApiStack/AssetParameters/aabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -176,13 +175,13 @@
                   "version": "1.90.1"
                 }
               },
-              "dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c": {
-                "id": "dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c",
-                "path": "VideoTranscriberApiStack/AssetParameters/dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c",
+              "00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d": {
+                "id": "00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d",
+                "path": "VideoTranscriberApiStack/AssetParameters/00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "VideoTranscriberApiStack/AssetParameters/dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c/S3Bucket",
+                    "path": "VideoTranscriberApiStack/AssetParameters/00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -190,7 +189,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "VideoTranscriberApiStack/AssetParameters/dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c/S3VersionKey",
+                    "path": "VideoTranscriberApiStack/AssetParameters/00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -198,7 +197,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "VideoTranscriberApiStack/AssetParameters/dcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75c/ArtifactHash",
+                    "path": "VideoTranscriberApiStack/AssetParameters/00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691d/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.90.1"
@@ -254,7 +253,7 @@
                   "aws:cdk:cloudformation:props": {
                     "content": {
                       "s3Bucket": {
-                        "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3BucketA9D75FC0"
+                        "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3Bucket6927ADEF"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -267,7 +266,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                                      "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3VersionKeyFC4C977F"
                                     }
                                   ]
                                 }
@@ -280,7 +279,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParameters984bd7d5185f843a4e7f1082411577ceb4288bca2d3afbb907c7bca64ae9bb1bS3VersionKeyF3660882"
+                                      "Ref": "AssetParametersaabc4b9ad4b226a081baf5261debebac7a2fe057984acf9a633982ac4c26d946S3VersionKeyFC4C977F"
                                     }
                                   ]
                                 }
@@ -289,8 +288,7 @@
                           ]
                         ]
                       }
-                    },
-                    "layerName": "pytube"
+                    }
                   }
                 },
                 "constructInfo": {
@@ -391,7 +389,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": {
-                        "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3Bucket3D16411C"
+                        "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3Bucket76E324BB"
                       },
                       "s3Key": {
                         "Fn::Join": [
@@ -404,7 +402,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                                      "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3VersionKey579E86D2"
                                     }
                                   ]
                                 }
@@ -417,7 +415,7 @@
                                   "Fn::Split": [
                                     "||",
                                     {
-                                      "Ref": "AssetParametersdcb7e758ab1672a71df6d014cb152e6f13a1d51692fc3dd4a78af7f15887d75cS3VersionKey66E73D03"
+                                      "Ref": "AssetParameters00bd3c8172a5c40b90719f4232a59dc8e6d0200842198bf4f5f0b8c5a22c691dS3VersionKey579E86D2"
                                     }
                                   ]
                                 }

@@ -14,13 +14,11 @@ class ApiCorsLambdaStack(core.Stack):
 
         requests_layer = _lambda.LayerVersion(
             self, "requests",
-            layer_version_name="requests",
             code=_lambda.AssetCode('layers/requests.zip')
             )
 
         pytube_layer = _lambda.LayerVersion(
             self, "pytube",
-            layer_version_name="pytube",
             code=_lambda.AssetCode('layers/pytube.zip')
             )
 
