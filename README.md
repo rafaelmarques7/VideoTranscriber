@@ -62,3 +62,12 @@ To create a `package.zip` file for a particular dependency, follow the following
 * input: validate input
 * handle case where youtube does not have captions
 * handle case where punctuation request errors
+
+## Run API locally
+
+The API is built as an AWS lambda function, thus, running it locally requires some workaround.
+
+To run this locally, we use the `python-lambda-local` package, with a command such as:
+```
+python-lambda-local -l src/ -f handler -t 20 src/main.py event.json
+```
