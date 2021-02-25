@@ -5,8 +5,6 @@
   "headers": null,
   "multiValueHeaders": null,
   "queryStringParameters": {
-    "foo": "bar",
-    "youtube_url": "https://youtube.com/test"
   },
   "multiValueQueryStringParameters": {
     "foo": [

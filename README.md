@@ -56,18 +56,30 @@ To create a `package.zip` file for a particular dependency, follow the following
   * zip the folder `zip -r ./requests.zip .`
   * now move the zipped folder into the layers directory, and delete the temp directory altogether
   * voilá
-  
+
+
+## Unit-testing
+
+* Unit-tests are written using the `pytest` package
+* Unit-tests file must start with `test_`, f.e. a valid filename for a test file is `test_filename.py`
+* Unit-tests may be run using `py.test`
+
+
+## Run API locally
+
+To activate the virtual env, run `source .venv/bin/activate`.
+
+The API is built as an AWS lambda function, thus, running it locally requires some workaround.
+
+To run this locally, we use the `python-lambda-local` package, with a command such as:
+```bash
+python-lambda-local -l src/ -f handler -t 20 src/main.py event.json
+```
+
+For more information, refer to [python-lambda-local](https://github.com/HDE/python-lambda-local).
+
 ## To Do's
 
 * input: validate input
 * handle case where youtube does not have captions
 * handle case where punctuation request errors
-
-## Run API locally
-
-The API is built as an AWS lambda function, thus, running it locally requires some workaround.
-
-To run this locally, we use the `python-lambda-local` package, with a command such as:
-```
-python-lambda-local -l src/ -f handler -t 20 src/main.py event.json
-```

@@ -34,14 +34,14 @@ class ApiCorsLambdaStack(core.Stack):
     base_api = _apigw.RestApi(self, 'ApiGatewayWithCors',
                               rest_api_name=APP_NAME)
 
-    example_entity = base_api.root.add_resource('example')
-    example_entity_lambda_integration = _apigw.LambdaIntegration(base_lambda, proxy=False, integration_responses=[{
+    route_transcribe = base_api.root.add_resource('transcribe')
+    route_transcribe_lambda_integration = _apigw.LambdaIntegration(base_lambda, proxy=True, integration_responses=[{
       'statusCode': '200',
       'responseParameters': {
         'method.response.header.Access-Control-Allow-Origin': "'*'",
       }}]
                                                                  )
-    example_entity.add_method('GET', example_entity_lambda_integration,
+    route_transcribe.add_method('GET', route_transcribe_lambda_integration,
                               method_responses=[{
                                 'statusCode': '200',
                                 'responseParameters': {
@@ -49,7 +49,7 @@ class ApiCorsLambdaStack(core.Stack):
                                 }}]
                               )
 
-    self.add_cors_options(example_entity)
+    self.add_cors_options(route_transcribe)
 
   def add_cors_options(self, apigw_resource):
     apigw_resource.add_method('OPTIONS', _apigw.MockIntegration(
