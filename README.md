@@ -5,6 +5,18 @@ The goal of this project is to create a simple website that allows you to:
   * output the video caption/transcription
   * (extra) create summary of the text
 
+- [Video Transcriber](#video-transcriber)
+  - [Proposed approach](#proposed-approach)
+  - [Proposed architecture](#proposed-architecture)
+  - [Issues](#issues)
+  - [Useful links](#useful-links)
+  - [Adding dependencies](#adding-dependencies)
+  - [Run API locally](#run-api-locally)
+  - [Linting](#linting)
+  - [To Do's](#to-dos)
+
+---
+
 ## Proposed approach
 
 * Use [pytube](https://github.com/pytube/pytube) to extract the relevant information of the video
@@ -12,20 +24,28 @@ The goal of this project is to create a simple website that allows you to:
 * If caption is not available, download video and use some speech-to-text service to extract the text
 * (extra) use a summary API to create a summary of the text
 
+---
+
 ## Proposed architecture
 
 * Use AWS lambda functions and API Gateway to power the API
 * Use React to build a simple frontend
 * Use AWS S3 and Cloudformation to create a static hosted and distribute it
 
+---
+
 ## Issues
 
 * Youtube captions don't have ponctuation
     * can we use an API to solve this issue? Example https://github.com/ottokart/punctuator2
     
+---
+
 ## Useful links
 
 * CDK setup was powered by https://github.com/aws-samples/aws-cdk-examples
+
+---
 
 ## Adding dependencies 
 
@@ -64,6 +84,7 @@ To create a `package.zip` file for a particular dependency, follow the following
 * Unit-tests file must start with `test_`, f.e. a valid filename for a test file is `test_filename.py`
 * Unit-tests may be run using `py.test`
 
+---
 
 ## Run API locally
 
@@ -78,13 +99,16 @@ python-lambda-local -l src/ -f handler -t 20 src/main.py event.json
 
 For more information, refer to [python-lambda-local](https://github.com/HDE/python-lambda-local).
 
+---
 
 ## Linting
 
 * The linter for this project follows the `pep8` styleguide.
 * The linter is `https://pypi.org/project/autopep8/`
 * To automatically fix the linting errors on a file, run `autopep8 --in-place --aggressive --aggressive src/main.py`
+* To automatically run the linter (and fix issues) on a project level, run `autopep8 . --recursive --in-place`
 
+---
 
 ## To Do's
 
