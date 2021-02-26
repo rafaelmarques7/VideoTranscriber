@@ -5,3 +5,4 @@ aws-cdk.aws_lambda
 aws-cdk.aws_apigateway
 python-lambda-local
 pytest
+autopep8

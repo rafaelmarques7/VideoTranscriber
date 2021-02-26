@@ -78,6 +78,14 @@ python-lambda-local -l src/ -f handler -t 20 src/main.py event.json
 
 For more information, refer to [python-lambda-local](https://github.com/HDE/python-lambda-local).
 
+
+## Linting
+
+* The linter for this project follows the `pep8` styleguide.
+* The linter is `https://pypi.org/project/autopep8/`
+* To automatically fix the linting errors on a file, run `autopep8 --in-place --aggressive --aggressive src/main.py`
+
+
 ## To Do's
 
 * input: validate input
